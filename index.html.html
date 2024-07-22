@@ -1,0 +1,436 @@
+<html><head><base href="https://job-seeker-questionnaire.com/"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טופס הכנה ליעוץ קריירה</title>
+<style>
+  @keyframes subtleGradient {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(-45deg, #e0f2e9, #c8e6c9, #a5d6a7, #81c784);
+    background-size: 200% 200%;
+    animation: subtleGradient 15s ease infinite;
+    direction: rtl;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+    order: 2;
+  }
+  h1 {
+    font-size: 1.8em;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    order: 1;
+    flex-grow: 1;
+    text-align: center;
+    background: linear-gradient(45deg, #2e7d32, #1565C0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textGradient 8s ease infinite;
+  }
+  @keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  h2 {
+    color: #1565C0;
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #1565C0;
+    padding-bottom: 5px;
+  }
+  .welcome {
+    color: #1565C0;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .intro {
+    color: #1565C0;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 0.9em;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #81c784;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .required:after {
+    content: " *";
+    color: #e53935;
+  }
+  @media (max-width: 600px) {
+    body {
+      padding: 5px;
+    }
+    .header {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .logo {
+      margin-bottom: 10px;
+      order: 1;
+    }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+      order: 2;
+    }
+    h2 {
+      font-size: 1.1em;
+    }
+    form {
+      padding: 15px;
+    }
+    input[type="submit"] {
+      padding: 10px 15px;
+    }
+  }
+  .profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4caf50;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .linkedin-link, .whatsapp-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .linkedin-logo, .whatsapp-logo {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+  }
+  .employment-status, .experience-options, .management-experience {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .employment-status label, .experience-options label, .management-experience label {
+    flex: 1 0 20%;
+    text-align: center;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border: 2px solid #a5d6a7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+  }
+  .employment-status label:hover, .experience-options label:hover, .management-experience label:hover {
+    background-color: #c8e6c9;
+  }
+  .employment-status input[type="radio"], .experience-options input[type="radio"], .management-experience input[type="radio"] {
+    display: none;
+  }
+  .employment-status input[type="radio"]:checked + label, .experience-options input[type="radio"]:checked + label, .management-experience input[type="radio"]:checked + label {
+    background-color: #4caf50;
+    color: white;
+    border-color: #2e7d32;
+  }
+  .submit-button {
+    background-color: #1565C0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 200px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .submit-button:hover {
+    background-color: #0D47A1;
+    transform: scale(1.05);
+  }
+  .submit-button:active {
+    transform: scale(0.95);
+  }
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    background-color: #e8f5e9;
+    border: 2px solid #a5d6a7;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .checkbox-group label:hover {
+    background-color: #c8e6c9;
+  }
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  .checkbox-group input[type="checkbox"]:checked + label {
+    background-color: #4caf50;
+    color: white;
+    border-color: #2e7d32;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>טופס הכנה ליעוץ קריירה</h1>
+    <img src="https://cdn.meshulam.co.il/_media/media/100004/107/purchase_logo_106619.jpg?t=1721643326" alt="לוגו" class="logo">
+  </div>
+  
+  <form action="/submit-questionnaire" method="GET" enctype="multipart/form-data">
+    <div class="welcome">ברוכים הבאים!</div>
+    <div class="intro">
+      נעים מאוד, שני שכטר, ה GPS לניהול הקריירה שלך.<br>
+      בעלת 12 שנות ניסיון בגיוס בחברות הטובות בעולם, ביניהן גוגל ומיקרוסופט<br>
+      ומהיום הכתובת שלך לניהול נכון של תהליך חיפוש העבודה<br>
+      מילוי הטופס יסייע לי להביא אותך אל היעד שלך בהצלחה<br>
+      נתחיל?
+    </div>
+    <div class="profile-pic-container">
+      <img src="https://cdn.meshulam.co.il/_media/media/100005/107/106550/purchase_media_106619_106550_1.JPG?t=1721635921" alt="תמונת פרופיל" class="profile-pic" id="profile-pic">
+      <br>
+      <a href="https://www.linkedin.com/in/shany-shechter-58b2a182/" target="_blank" class="linkedin-link">
+        <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn" class="linkedin-logo">
+      </a>
+      <a href="https://wa.me/972525822245" target="_blank" class="whatsapp-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-logo">
+      </a>
+    </div>
+
+    <h2>פרטים אישיים</h2>
+    <label for="name" class="required">שם מלא:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email" class="required">כתובת אימייל:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="phone" class="required">מספר טלפון:</label>
+    <input type="tel" id="phone" name="phone" required>
+    
+    <label for="linkedin">קישור לפרופיל LinkedIn:</label>
+    <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/your-profile">
+    
+    <h2>רקע מקצועי</h2>
+    <label for="current_job">המיקום שלך:</label>
+    <input type="text" id="current_job" name="current_job" placeholder="תפקידך הנוכחי או התפקיד האחרון">
+
+    <label for="employment_status" class="required">מצב תעסוקתי נוכחי:</label>
+    <div class="employment-status">
+      <input type="radio" id="employed" name="employment_status" value="employed" required>
+      <label for="employed">מועסק/ת</label>
+      <input type="radio" id="job_seeker" name="employment_status" value="job_seeker">
+      <label for="job_seeker">מחפש/ת עבודה</label>
+      <input type="radio" id="student" name="employment_status" value="student">
+      <label for="student">סטודנט/ית</label>
+      <input type="radio" id="other_status" name="employment_status" value="other">
+      <label for="other_status">אחר</label>
+    </div>
+    
+    <label for="experience" class="required">שנות ניסיון בתחום הנוכחי:</label>
+    <div class="experience-options">
+      <input type="radio" id="exp_0_2" name="experience" value="0-2" required>
+      <label for="exp_0_2">0-2 שנות ניסיון</label>
+      <input type="radio" id="exp_3_5" name="experience" value="3-5">
+      <label for="exp_3_5">3-5 שנות ניסיון</label>
+      <input type="radio" id="exp_6_10" name="experience" value="6-10">
+      <label for="exp_6_10">6-10 שנות ניסיון</label>
+      <input type="radio" id="exp_11_plus" name="experience" value="11+">
+      <label for="exp_11_plus">11 שנות ניסיון ומעלה</label>
+    </div>
+
+    <label for="management_experience" class="required">ניסיון ניהולי:</label>
+    <div class="management-experience">
+      <input type="radio" id="management_yes" name="management_experience" value="yes" required>
+      <label for="management_yes">כן</label>
+      <input type="radio" id="management_no" name="management_experience" value="no">
+      <label for="management_no">לא</label>
+    </div>
+    
+    <h2>ניווט</h2>
+    
+    <label for="about_you">לאן?</label>
+    <textarea id="about_you" name="about_you" rows="3" placeholder="ספר/י לנו מה התפקיד הבא שאת/ה רוצה"></textarea>
+    
+    <label for="reason" class="required">סיבת הנסיעה:</label>
+    <select id="reason" name="reason" required>
+      <option value="">בחר/י</option>
+      <option value="unemployed">חיפוש עבודה לאחר תקופת אבטלה</option>
+      <option value="graduate">סיום לימודים וכניסה לשוק העבודה</option>
+      <option value="relocation">מעבר גיאוגרפי</option>
+      <option value="unsatisfied">לא מרוצה מהמקום הנוכחי</option>
+      <option value="professional_conversion">הסבה מקצועית</option>
+      <option value="other">אחר</option>
+    </select>
+    
+    <label for="preferences">העדפות:</label>
+    <select id="preferences" name="preferences">
+      <option value="" selected>בחר/י</option>
+      <option value="avoid_repeated_interviews">להימנע מראיונות חוזרים שמסתיימים בהודעת שלילה</option>
+      <option value="avoid_unclear_paths">להימנע מדרכים לא סלולות שהיעד לא ברור לי</option>
+      <option value="avoid_challenging_junctions">להימנע מצמתים מאתגרים</option>
+      <option value="avoid_sending_cv_without_response">להימנע משליחת קורות חיים ללא קבלת פניות</option>
+      <option value="avoid_fast_wrong_decisions">להימנע מכבישים מהירים שמובילים להחלטות שגויות</option>
+      <option value="personalized_route">התאימו אישית את המסלול ואת זמן ההגעה ליעד</option>
+    </select>
+    
+    <label for="career_paths">מסלולים:</label>
+    <select id="career_paths" name="career_paths">
+      <option value="" selected>בחר/י</option>
+      <option value="fast_track">הנתיב המהיר - מפגש בודד</option>
+      <option value="two_plus_workshop">מסלול +2 סדנת תרגול בקבוצה קטנה</option>
+      <option value="three_meetings">3 מפגשים</option>
+      <option value="six_meetings">כביש 6 מפגשים</option>
+    </select>
+    
+    <label for="preferred_services">תכנון מסלול והוספת עצירה:</label>
+    <div class="checkbox-group">
+      <input type="checkbox" id="resume" name="preferred_services[]" value="resume">
+      <label for="resume">בניית קורות חיים</label>
+      
+      <input type="checkbox" id="linkedin" name="preferred_services[]" value="linkedin">
+      <label for="linkedin">שיפור פרופיל LinkedIn</label>
+      
+      <input type="checkbox" id="interview" name="preferred_services[]" value="interview">
+      <label for="interview">הכנה לראיונות עבודה</label>
+      
+      <input type="checkbox" id="career_planning" name="preferred_services[]" value="career_planning">
+      <label for="career_planning">תכנון קריירה</label>
+      
+      <input type="checkbox" id="job_search" name="preferred_services[]" value="job_search">
+      <label for="job_search">אסטרטגיות לחיפוש עבודה</label>
+      
+      <input type="checkbox" id="networking" name="preferred_services[]" value="networking">
+      <label for="networking">נטוורקינג</label>
+      
+      <input type="checkbox" id="full_package" name="preferred_services[]" value="full_package">
+      <label for="full_package">חבילה מלאה</label>
+    </div>
+    
+    <label for="additional_info">כל דבר נוסף שיעזור לנו לשפר את הנסיעה שלך ולקצר את זמן ההגעה אל היעד:</label>
+    <textarea id="additional_info" name="additional_info" rows="3" placeholder="שתף/י איתנו כל מידע שיכול לסייע בתכנון המסלול המיטבי עבורך"></textarea>
+    
+    <button type="submit" class="submit-button">לצאת עכשיו</button>
+  </form>
+
+  <script>
+    document.querySelector('.submit-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('תודה על מילוי הטופס! נחזור אליך בהקדם לתיאום פגישת ייעוץ ראשונה.');
+      // Here you would typically send the form data to a server
+      // For demonstration, we're just showing an alert
+    });
+
+    // Add subtle touch effects for mobile
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.style.boxShadow = '0 0 5px rgba(76, 175, 80, 0.5)';
+      });
+      input.addEventListener('blur', function() {
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Smooth scroll to form fields when selecting them
+    document.querySelectorAll('label').forEach(label => {
+      label.addEventListener('click', function(e) {
+        const forElement = document.getElementById(this.getAttribute('for'));
+        if (forElement) {
+          e.preventDefault();
+          forElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => forElement.focus(), 500);
+        }
+      });
+    });
+
+    // LinkedIn URL validation
+    document.getElementById('linkedin').addEventListener('blur', function() {
+      const linkedinRegex = /^https:\/\/www\.linkedin\.com\/in\/[\w\-]+\/?$/;
+      if (this.value && !linkedinRegex.test(this.value)) {
+        alert('אנא הזן כתובת LinkedIn תקינה');
+        this.value = '';
+      }
+    });
+
+    // Add animation to checkbox labels when checked
+    const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const label = this.nextElementSibling;
+        if (this.checked) {
+          label.style.transform = 'scale(1.05)';
+          setTimeout(() => label.style.transform = 'scale(1)', 200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
